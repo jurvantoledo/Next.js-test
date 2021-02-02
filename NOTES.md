@@ -160,3 +160,11 @@ const filtered = articles.filter(article => article.id === id)
 }
 
 <p>You can use for the get request this in the handler: {query: {id}} or just use req.query.id and keep it like handler(req, res)</p>
+
+## Using the API data
+
+- Make a config folder
+- Make a index file
+- add this const dev = process.env.NODE_ENV !== 'production'
+- add this export const server = dev ?
+  'http://localhost:3000' : 'https://yourwebsite.com'
