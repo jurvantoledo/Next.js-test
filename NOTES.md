@@ -119,3 +119,44 @@ const res = await fetch
 }
 
 <p>Using this is needen when you Link to a new article with <strong>getStaticProps</strong> its nice because it loads faster this way. Else use <strong>serverSide props</strong> in the same way as getStaticProps and you can leave <strong>getStaticPaths</strong> out. But it will make the website slower</p>
+
+## Export Static Website
+
+- in package.json add "build": "next build && next export" in the scripts
+- use npm run build
+- if its alright there is now a folder named "out"
+- install serve with "npm -g server"
+- then do "serve -s out -p 8000"
+- if you now go to http://localhost:8000 u have your super fast website
+
+## API Routes
+
+Look a lot like express server routes
+
+Have a data.js file where we are exporting articles. Import it in your index file in the articles folder in the api folder, and send an handler with a (req, res) with status (200)
+
+import {articles} from "../../../data"
+
+export default function handler(req, res) {
+res.status(200).json(articles)
+}
+
+<h2>Single article</h2>
+To get a single article:
+- make a file called [id].js
+- filter the articles so you can only find the right id for the right article you are actually saying <strong>IF article.id is equal to id show info of that article</strong>
+
+import {articles} from "../../../data"
+
+export default function handler({query: {id}}, res) {
+const filtered = articles.filter(article => article.id === id)
+
+    if(filtered.length > 0) {
+        res.status(200).json(filtered[0])
+    } else {
+        res.status(404).json({message: `Article with the id of ${id} is not found`})
+    }
+
+}
+
+<p>You can use for the get request this in the handler: {query: {id}} or just use req.query.id and keep it like handler(req, res)</p>
