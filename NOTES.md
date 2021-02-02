@@ -175,4 +175,8 @@ const filtered = articles.filter(article => article.id === id)
   - articles is the name of the folder in the api folder
   - so if we also would have had a posts folder in the api folder it would have looked like this (`${server}/api/posts`)
 
-  ## Custom meta component
+## Custom meta component
+
+- Make a file called Meta.js and use Head there
+- Put it in Layout
+- Improt Meta on pages if you want Meta to change on that page. It wont duplicate if you do this
