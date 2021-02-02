@@ -169,7 +169,10 @@ const filtered = articles.filter(article => article.id === id)
 - add this export const server = dev ?
   'http://localhost:3000' : 'https://yourwebsite.com'
 - make your routes like this (`${server}/api/articles`) because:
+
   - server is the URL
   - api is the server where you get the right data
   - articles is the name of the folder in the api folder
   - so if we also would have had a posts folder in the api folder it would have looked like this (`${server}/api/posts`)
+
+  ## Custom meta component
