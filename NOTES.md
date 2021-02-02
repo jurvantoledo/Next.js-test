@@ -53,3 +53,28 @@ Import Nav.js in Layout.js
     IN MOST CASES YOU DONT NEED THIS !
 
 ## Data Fetching
+
+Can add functions above or below the component
+
+3 methods to fetch data:
+
+- getStatic props => allows us to fetch it build time
+- server-side props => fetch data on every request (slower)
+- getStatic path => dynamically generate paths based on data we're fetching
+
+## getStaticProps
+
+    Example:
+    export const getStaticProps = async () => {
+    const res = await fetch
+     (`https://jsonplaceholder.typicode.com/posts?_limit=6`)
+    const articles = await res.json()
+
+    <p>You return an object with props and then data which is passed in as props this case: Articles</p>
+     return {
+      props: {
+       articles
+     }
+
+}
+}
