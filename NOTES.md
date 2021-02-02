@@ -25,3 +25,9 @@ Head is used for:
 adding styles to page with: className={styles.container(whatever class you wanna use)}
 
 Layout now wrapped around Component in \_app.js Everything you now add in layout will show on all pages
+
+## nav components & Link
+
+Dont use <a> tag but use Link from "next/link" same as 'React-router-dom'
+
+Import Nav.js in Layout.js
