@@ -59,7 +59,7 @@ Can add functions above or below the component
 3 methods to fetch data:
 
 - getStatic props => allows us to fetch it build time
-- server-side props => fetch data on every request (slower)
+- serverSide props => fetch data on every request (slower)
 - getStatic path => dynamically generate paths based on data we're fetching
 
 ## getStaticProps
@@ -78,3 +78,44 @@ Can add functions above or below the component
 
 }
 }
+
+## Nested Routing
+
+- Create folder for this project it's called article
+- create another folder called [id]
+- make index file
+- if you click on link now and you return some text you will see the text when you click on the link
+
+export const getStaticProps = async (context) => {
+const res = await fetch
+(`https://jsonplaceholder.typicode.com/posts/${context.params.id}`)
+
+    const article = await res.json()
+
+    return {
+        props: {
+            article
+        }
+    }
+
+}
+
+<p>This is so you can get the ids of the articles so the link will go to the right article</p>
+
+export const getStaticPaths = async () => {
+const res = await fetch
+(`https://jsonplaceholder.typicode.com/posts`)
+
+    const articles = await res.json()
+
+    const ids = articles.map(article => article.id)
+
+    const paths = ids.map(id => ({params: {id: id.toString}}))
+
+    return {
+        paths
+    }
+
+}
+
+<p>Using this is needen when you Link to a new article with <strong>getStaticProps</strong> its nice because it loads faster this way. Else use <strong>serverSide props</strong> in the same way as getStaticProps and you can leave <strong>getStaticPaths</strong> out. But it will make the website slower</p>
