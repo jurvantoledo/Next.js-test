@@ -26,6 +26,18 @@ adding styles to page with: className={styles.container(whatever class you wanna
 
 Layout now wrapped around Component in \_app.js Everything you now add in layout will show on all pages
 
+can use jsx styling in Next.js but only if u have some kind of conditional styling
+EXAMPLE:
+const x = 5
+
+<style jsx>
+    {`
+        .title {
+            color: ${x > 3 ? 'red' : 'blue'}
+        }
+    `}
+</style>
+
 ## nav components & Link
 
 Dont use <a> tag but use Link from "next/link" same as 'React-router-dom'
