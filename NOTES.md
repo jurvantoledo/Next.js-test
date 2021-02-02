@@ -43,3 +43,13 @@ const x = 5
 Dont use <a> tag but use Link from "next/link" same as 'React-router-dom'
 
 Import Nav.js in Layout.js
+
+## Custom Document
+
+    if you dont make a _document.js file, Next.js will automatically take the default _document.js code.
+
+    Can take default _document.js code from Next.js documentation (https://nextjs.org/docs/advanced-features/custom-document) and you can make changes to it in your file.
+
+    IN MOST CASES YOU DONT NEED THIS !
+
+## Data Fetching
